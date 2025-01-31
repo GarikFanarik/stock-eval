@@ -1,6 +1,11 @@
 import streamlit as st
-from main import get_financial_ratios
+import pandas as pd
+from main import get_financial_ratios,compare_with_target_values
 st.session_state.stock = st.text_input("Enter the desired Stock")
 
-if "stock" in st.session_state:
-    st.dataframe(get_financial_ratios(st.session_state.stock))
+if st.session_state.stock:
+    res = get_financial_ratios(st.session_state.stock)
+    st.subheader(res[1])
+    st.dataframe(res[0].T)
+    #st.dataframe(pd.concat([res[0].T, compare_with_target_values(res[0]).T]))
+
