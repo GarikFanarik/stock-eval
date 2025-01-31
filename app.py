@@ -7,5 +7,5 @@ if st.session_state.stock:
     res = get_financial_ratios(st.session_state.stock)
     st.subheader(res[1])
     #st.dataframe(res[0].T)
-    st.dataframe(pd.concat([res[0].T, compare_with_target_values(res[0]).T],axis=0))
+    st.dataframe(pd.concat([res[0].T, compare_with_target_values(res[0]).T],axis=1))
 
