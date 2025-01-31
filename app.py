@@ -1,2 +1,2 @@
 import streamlit as st
-st.user_input("Enter the desired Stock")
+st.text_input("Enter the desired Stock")
